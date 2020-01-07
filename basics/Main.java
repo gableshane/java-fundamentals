@@ -9,6 +9,8 @@ public class Main {
 
     int turtleCount = 0;
     System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
+
+    flipNHeads(1);
   }
   public static String pluralize(String word , int num) {
     if (num > 1 || num == 0) {
@@ -16,5 +18,19 @@ public class Main {
     } else {
       return word;
     }
+  }
+  public static void flipNHeads(int num) {
+    int counter = 0;
+    while (counter < num) {
+      double flip = Math.random();
+      counter++;
+      if (flip > .5) {
+        System.out.println("heads");
+      } else {
+        System.out.println("tails");
+      }
+    }
+    String output = String.format("It took %d flips to flip %d heads in a row", counter, num);
+    System.out.println(output);
   }
 }
