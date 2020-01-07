@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class Main {
   public static void main(String[] args) {
     System.out.println("Works");
@@ -11,6 +13,7 @@ public class Main {
     System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
 
     flipNHeads(1);
+    clock();
   }
   public static String pluralize(String word , int num) {
     if (num > 1 || num == 0) {
@@ -32,5 +35,19 @@ public class Main {
     }
     String output = String.format("It took %d flips to flip %d heads in a row", counter, num);
     System.out.println(output);
+  }
+  public static void clock() {
+    int current = LocalDateTime.now().getSecond();
+    while (true) {
+      if (current + 1 == LocalDateTime.now().getSecond()) {
+        LocalDateTime now = LocalDateTime.now();
+        int hour = now.getHour();
+        int minute = now.getMinute();
+        int second = now.getSecond();
+        String result = String.format("%d:%d:%d",hour,minute,second);
+        System.out.println(result);
+        current = second;
+      }
+    }
   }
 }
