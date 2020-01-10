@@ -9,10 +9,40 @@ public class Library {
     }
     public static int[] roll(int n) {
         int[] result = new int[n];
-        for (int i = 0; i < n;) {
+        for (int i = 0; i < n; i++) {
             int num = (int)(Math.random() * (6 - 1) + 1);
             result[i] = num;
         }
         return result;
+    }
+    public static boolean containsDuplicates(int[] inputArray) {
+        for(int i = 0; i < inputArray.length;i++) {
+            for(int j = i; i < inputArray.length;i++) {
+                if(inputArray[i] == inputArray[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public static float findAverage(int[] inputArray) {
+        int total = 0;
+        for(int num : inputArray) {
+            total += num;
+        }
+        float result = (float)total / inputArray.length;
+        return result;
+    }
+    public static int[] arrayOfArrays(int[][] inputArray) {
+        float tracker = findAverage(inputArray[0]);
+        int indexOf = 0;
+        for(int i = 0; i < inputArray.length;i++){
+            float foo = findAverage(inputArray[i]);
+            if(foo < tracker) {
+                tracker = foo;
+                indexOf = i;
+            }
+        }
+        return inputArray[indexOf];
     }
 }
