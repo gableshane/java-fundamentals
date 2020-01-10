@@ -8,21 +8,55 @@ import static org.junit.Assert.*;
 
 public class LibraryTest {
     @Test
-    public void testSomeLibraryMethod() {
+    public void testSomeLibraryMethod_roll_testOutput() {
         int testNum = 5;
-        int[] testArray = Library.roll(testNum);
-
-        boolean test = false;
-
-        for(int i = 0; i < testNum; i++) {
-
-            if (testArray[i] > 6 || testArray[i] < 1) {
-                test = false;
+        int[] output = Library.roll(testNum);
+        boolean testResult = true;
+        for(int el : output) {
+            if(el > 6 || el < 1) {
+                testResult = false;
                 break;
-            } else {
-                test = true;
             }
         }
-        assertTrue("someLibraryMethod should return 'true'", test);
+        assertTrue("The rolls are all between 1 and 6", testResult);
+    }
+    @Test
+    public void testSomeLibraryMethod_roll_testLength() {
+        int testNum = 7;
+        int[] output = Library.roll(testNum);
+        boolean testResult = testNum == output.length;
+        assertTrue("The length of the output array is equal to n",testResult);
+    }
+    @Test
+    public void testSomeLibraryMethod_containsDuplicates_false() {
+        int[] testArray = new int[]{1,2,3,4,5,6,7};
+        assertTrue("The result should be false because the test array does not contain duplicates",Library.containsDuplicates(testArray));
+    }
+    @Test
+    public void testSomeLibraryMethod_containsDuplicates_true() {
+        int[] testArray = new int[]{1,2,3,3,4,5,6};
+        assertTrue("The result should be true because the test array contains duplicates",Library.containsDuplicates(testArray));
+    }
+    @Test
+    public void testSomeLibraryMethod_findAverage_whole() {
+        int[] testArray = new int[]{2,2,2};
+        int testNum = 2;
+        assertEquals("The average of the same number should be that number",testNum,Library.findAverage(testArray),.0001);
+    }
+    @Test
+    public void testSomeLibraryMethod_findAverage_decimal() {
+        int[] testArray = new int[]{12,13};
+        float testNum = (float)12.5;
+        assertEquals("The average of the same number should be that number",testNum,Library.findAverage(testArray),.0001);
+    }
+    @Test
+    public void testSomeLibraryMethod_arrayOfArrays() {
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+        assertEquals("The array should return the array with the lowest average",weeklyMonthTemperatures[2],Library.arrayOfArrays(weeklyMonthTemperatures));
     }
 }

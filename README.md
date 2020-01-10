@@ -1,6 +1,20 @@
 # java-fundamentals
-
+# basics
 1. Main.java
   - pluralize()
   - flipping coins()
   - clock()
+# basicslibrary
+1. Libary.java
+  - someLibraryMethod()
+  - containsDuplicates()
+  -  findAverage()
+  - arrayOfArrays()
+2. LibraryTest.java
+  - testSomeLibraryMethod_roll_testOutput()
+  - testSomeLibraryMethod_roll_testLength()
+  - testSomeLibraryMethod_containsDuplicates_false()
+  - testSomeLibraryMethod_containsDuplicates_true()
+  - testSomeLibraryMethod_findAverage_whole()
+  - testSomeLibraryMethod_findAverage_decimal()
+  - testSomeLibraryMethod_arrayOfArrays()
