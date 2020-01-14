@@ -6,6 +6,7 @@ public class Review {
     String author;
     int stars;
     String restaurant;
+    Restaurant restaurantPointer;
     Review next;
 
     public Review(String body, String author, int stars){

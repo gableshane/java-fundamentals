@@ -1,5 +1,7 @@
 package inheritence;
 
+import java.util.StringJoiner;
+
 public class Restaurant {
 
     String name;
@@ -12,15 +14,22 @@ public class Restaurant {
         this.price = price;
     }
     public String toSillyString(){
+        Review r = this.reviews;
+        StringJoiner reviews = new StringJoiner(":","[","]");
+        while(r != null){
+            reviews.add(r.toSillyString());
+            r = r.next;
+        }
         String result = "Restaurant name: " + this.name + " it has " + this.stars + " stars and a price rating of: " +
                 this.price;
-        return result;
+        return result + "Reviews: " + reviews;
     }
     public void addReview(Review review){
         review.next = this.reviews;
         this.reviews = review;
         review.restaurant = this.name;
         this.stars = this.getStars();
+        review.restaurantPointer = this;
     }
     public double getStars(){
         Review r = this.reviews;
