@@ -29,6 +29,7 @@ public class Restaurant {
         this.reviews = review;
         review.restaurant = this.name;
         this.stars = this.getStars();
+        review.restaurantPointer = this;
     }
     public double getStars(){
         Review r = this.reviews;
