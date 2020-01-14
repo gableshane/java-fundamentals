@@ -18,9 +18,11 @@ public class RestaurantTest {
     @Test
     public void testStringMethodRestaurant(){
         Restaurant testaurant = new Restaurant("Test","$");
-        Review testReview = new Review("Test review.","Test Author",1);
-        testaurant.addReview(testReview);
-        String expected = "Restaurant name: Test it has 1.0 stars and a price rating of: $";
+        Review testReviewA = new Review("Test review A.","Test Author",1);
+        testaurant.addReview(testReviewA);
+        String expected = "Restaurant name: Test it has 1.0 stars and a price rating of: $Reviews: [Review body: \"Test "
+                + "review A.\" Written by: Test Author who gave 1 stars.]";
+        System.out.println(testaurant.toSillyString());
         assertEquals("Testing string output",expected,testaurant.toSillyString());
 
     }
