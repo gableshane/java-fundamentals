@@ -1,14 +1,11 @@
 package inheritence;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.StringJoiner;
 
-public class Theater {
+public class Theater extends Business {
 
-    String name;
     ArrayList<String> movies;
-    Review reviews;
 
     public Theater(String name){
         this.name = name;
@@ -38,11 +35,5 @@ public class Theater {
         }
         String result = "Theater name: " + this.name + "\nNow playing: " + movies + "\n--REVIEWS--" + reviews;
         return result;
-    }
-    public void addReview(Review review){
-        review.next = this.reviews;
-        this.reviews = review;
-        review.business = this.name;
-        review.theaterPointer = this;
     }
 }

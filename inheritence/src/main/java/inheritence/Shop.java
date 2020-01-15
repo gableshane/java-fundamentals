@@ -2,12 +2,9 @@ package inheritence;
 
 import java.util.StringJoiner;
 
-public class Shop {
+public class Shop extends Business{
 
-    String name;
     String description;
-    int price;
-    Review reviews;
 
     public Shop(String name, String description, int price){
         this.name = name;
@@ -29,10 +26,5 @@ public class Shop {
                 "\nPrice point: " + this.price;
         return result;
     }
-    public void addReview(Review review){
-        review.next = this.reviews;
-        this.reviews = review;
-        review.business = this.name;
-        review.shopPointer = this;
-    }
+
 }
