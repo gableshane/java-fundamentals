@@ -7,6 +7,7 @@ public class Library {
     public boolean someLibraryMethod() {
         return true;
     }
+
     public static int[] roll(int n) {
         int[] result = new int[n];
         for (int i = 0; i < n; i++) {
