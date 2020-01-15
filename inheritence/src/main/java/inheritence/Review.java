@@ -6,11 +6,9 @@ public class Review {
     String author;
     int stars;
     String business;
-    Restaurant restaurantPointer;
-    Shop shopPointer;
-    Theater theaterPointer;
+    Business businessPointer;
     Review next;
-    String movie = ifMovie();
+    String movie;
 
     public Review(String body, String author, int stars){
 
@@ -35,11 +33,5 @@ public class Review {
                     " stars." + " Movie: " + this.movie;
         }
         return result;
-    }
-    public String ifMovie(){
-        if(this.movie != null){
-            return this.movie;
-        }
-        return null;
     }
 }
