@@ -11,16 +11,16 @@ public class AnalyzingWeatherData {
         String response = "";
         for (int[] arr : weatherData) {
             for (int num : arr) {
-                min = min > num ? num : min;
-                max = max < num ? num : max;
+                min = Math.min(min, num);
+                max = Math.max(max, num);
                 temperatures.add(num);
             }
         }
         response += "High: " + max + "\n";
-        response += "Low: " + min + "\n";
+        response += "\n" + "Low: " + min;
         for(int i = min;i < max;i++) {
             if(!temperatures.contains(i)) {
-                response += "Never saw temperature: " + i + "\n";
+                response += "\n" + "Never saw temperature: " + i;
             }
         }
         return response.strip();
